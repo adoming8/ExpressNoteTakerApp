@@ -35,16 +35,30 @@ app.get("/api/notes", function (request, response) {
     response.json(notesSavedArr);
 });
 
+// API POST route to send new note
 app.post("/api/notes", function (request, response) {
     var newNote = request.body;
     // console.log(newNote)
+    newNote.id = Math.round(Math.random() * 9999); // adding unique id to each note created
     notesSavedArr.push(newNote);
     console.log(notesSavedArr)
     fs.writeFileSync("./db/db.json", JSON.stringify(notesSavedArr, null, 2), "utf-8")
     response.json(newNote);
 });
 
+// API route to DELETE note by ID 
+app.delete('/api/notes/:id', (request, response) => {
 
+    // using object literals to find the id of notesSavedArr object
+    var note2Delete = notesSavedArr.find(
+        function({id}){id === JSON.parse(request.params.id)
+    });
+    // removes object at index of note id
+    notesSavedArr.splice(notesSavedArr.indexOf(note2Delete));
+    
+    fs.writeFileSync("./db/db.json", JSON.stringify(notesSavedArr, null, 2), "utf-8")
+    response.end("Deciered note Deleted, Note Obj rewritten");
+});
 
 
 app.listen(PORT, function() {
