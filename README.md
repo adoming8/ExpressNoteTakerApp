@@ -1,8 +1,4 @@
 # Unit 11 Express Homework: Note Taker
-
-## Description
-  *  This is application allows the user to write, save, and delete notes. This application uses an express backend and save and retrieve note data from a JSON file.
-# Unit 11 Express Homework: Note Taker
     This application allows the user to write, save, and delete notes. It uses an express backend server. 
 + [Express Note Taker App](https://github.com/adoming8/Unit11_ExpressNoteTakerApp.git "Express Note Taker App") 
 
