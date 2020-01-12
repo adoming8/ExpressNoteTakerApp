@@ -49,7 +49,7 @@ app.post("/api/notes", function (request, response) {
 // API route to DELETE note by ID 
 app.delete('/api/notes/:id', (request, response) => {
 
-    // using object literals to find the id of notesSavedArr object
+    // using object literals to find the id in notesSavedArr object
     var note2Delete = notesSavedArr.find(
         function({id}){id === JSON.parse(request.params.id)
     });
